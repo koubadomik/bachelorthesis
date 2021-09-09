@@ -1,0 +1,125 @@
+\chapter{Zpracování dat} \label{chap:processing}
+% Při řešení problému tvorby databáze osob, pracovišť a jejich kompetencí jsme v této práci udělali již několik závěrů:\par
+% \begin{itemize}
+% \item Omezili jsme svou snahu z databáze kompetencí na databázi znalostí
+% \item  Znalosti chceme reprezentovat pomocí ontologií
+% \item Potřebná data jsou obvykle k dispozici ve formátu XML nebo JSON přes webové API v nejednotném datovém schématu
+% \end{itemize}
+Jak jsme již předestřeli v závěru minulé kapitoly, dalším velkým úkolem, který jsme si vytyčili, je rozhodnout o zpracování dat.\par
+\noindent V kapitole č. \ref{chap:decompisition} jsme zmínili následující celky:
+\begin{itemize}
+    \item Transformace dat do vybrané datové struktury
+    \item Další zpracování získaných dat
+    \item Operace nad daty (CRUD)
+    \item Poskytování dat
+\end{itemize}
+Každé z těchto témat má jistě další dílčí části, ty budeme rozebírat v následujících sekcích této kapitoly. Je důležité zmínit, že problematika zpracování dat naší povahy je velmi složitá. Cílem této kapitoly je, více než nalezení odpovědí na všechny otázky, kompletace maximálního množství otevřených bodů, které musí konkrétní řešení brát v úvahu. Ke každé dílčí problematice doplníme příklady technologií, které tuto problematiku řeší, nebo alespoň nastíníme možnosti řešení.
+\par
+V této části je naše zkoumání dosti technologicky závislé. Jak a proč se rozhodneme konkrétní postup využít, záleží vždy na zvoleném řešení. Neprovedeme tedy volbu jednoho z možných přístupů, ale zhodnotíme spíše kladné a záporné vlastnosti každého z nich.\par
+% Také jsme si jisti, že jsme nevyřešili všechny otázky, které mohou při tvorbě databáze kompetencí vyvstat. 
+V další části práce, převážně v kapitole implementace (kapitola \ref{chap:implementation}), na tuto kapitolu navážeme.
+
+\section{Transformace dat}
+V kapitole č. \ref{chap:data_representation} jsme zvolili jako nejvhodnější reprezentaci znalostí pro naše účely ontologie. Do této reprezentace budeme data transformovat. S tímto problémem souvisí následující:
+\begin{itemize}
+    \item Volba ontologie
+    \item Transformace dat do ontologií (resp. do přidružených formátů)
+\end{itemize}
+\subsection{Volba ontologie}
+Existují dva základní přístupy. Prvním přístupem je vybrat existující ontologii a tu použít. Druhý přístup je vytvořit ontologii novou. Oba přístupy lze kombinovat, tedy vybrat existující ontologii a v případě nutnosti jí vhodným způsobem rozšířit.\par
+\subsubsection{Existující ontologie}
+Ontologie se mezi sebou liší a každá má případ užití, pro který se hodí. Například ontologie SKOS je určená pro tvorbu slovníků, thesauri a podobně. Důležitým kritériem při výběru je poměr expresivity a formálnosti. SKOS dle specifikace \cite{SKOS} zcela postrádá formálnost, přesto se však hojně používá.\par
+\subsubsection{Návrh nové ontologie}
+Druhý možný přístup je navrhnout ontologii vlastní. Čistě pro potřeby databáze kompetencí.\par
+V takovém případě je nutno brát v úvahu, že existují tzv. top-level ontologie (viz kapitola \ref{sec:knowledge_representation}), dle kterých je možné navrhovat vlastní ontologie nižšího řádu. Takovou ontologií může být např. ontologie UFO \cite{Guizzardi2005}.
+
+\subsection{Transformace}
+V kapitole č. \ref{sec:knowledge_representation} jsme již konstatovali, že používaným formátem pro ontologická data jsou tzv. RDF triply. Dále jsme v kapitole č. \ref{chap:data-sources-analysis} konstatovali, že nejčastějšími formáty získaných dat jsou formáty XML a JSON. Je nutné dodat, že velké množství dat je stále nestrukturovaných (například prostý text).\par
+V rámci transformace je tedy třeba zajistit převod získaných dat do RDF (RDF XML, JSON-LD, turtle).\par
+RDF triply jsou však jen začátek, je důležité zmínit, že další rozšíření (OWL, RDFS) vyžadují ještě vyšší kvalitu dat a jejich dodatečná anotace je často nevyhnutelná.
+% Obecně o převodu strukturovaných dat hovoří tento článek - https://www.w3.org/TR/2015/REC-csv2rdf-20151217/
+\subsubsection{Strukturovaná data}
+\paragraph{Existující řešení:}
+\begin{itemize}
+\item Ontorefine - převod strukturovaných dat (.CSV, .JSON, .XML) do formátu RDF, podpora filtrování dat a dalších funkcí (zdroj: \url{http://graphdb.ontotext.com/documentation/free/loading-data-using-ontorefine.html})
+\item URIBurner (zdroj: \url{http://linkeddata.uriburner.com/})
+\item Tarql (zdroj: \url{http://tarql.github.io/})
+\item Implementace RML (zdroj: \url{http://rml.io})
+\end{itemize}
+\subsubsection{Nestrukturovaná data}
+Jsou-li data, která máme k dispozici nestrukturovaná, je potřeba přistoupit ke složitějším technikám - anotace dat, zpracování přirozeného jazyka a podobně.\par
+
+\section{Operace nad daty}
+S tímto problémem souvisí následující:
+\begin{itemize}
+    \item Databáze
+    \item CRUD operace
+\end{itemize}
+
+\subsection{Databáze}
+Ukládání dat v podobě RDF je realizováno speciálním druhem grafových databází tzv. \textit{triple-store}. Lze samozřejmě použít libovolnou grafovou databázi, avšak \textit{triple-store} je přímo určen pro práci s RDF triply.\par
+\noindent Implementací těchto databází je samozřejmě nespočet, uvedeme nejznámější z nich:\par
+\begin{itemize}
+\item GraphDB - \url{http://graphdb.ontotext.com/}
+\item Allegrograph - \url{https://allegrograph.com/}
+\item JENA APACHE - \url{https://jena.apache.org/index.html/}
+\item Virtuoso - \url{https://virtuoso.openlinksw.com/}
+\end{itemize}
+
+\section{CRUD operace}
+Každá databáze má k dispozici data a zároveň nástroj, který uživateli umožňuje k datům přistupovat a pracovat s nimi. Typicky jsou tímto nástrojem dotazovací jazyky. U relačních databází je to jazyk SQL, u grafových jazyk CYPHER a u \textit{triple-store} databází je to obvykle jazyk SPARQL \cite{SPARQL}.\par
+Dotazovací jazyk SPARQL má šest základních dotazů - SELECT, ASK, CONSTRUCT, DESCRIBE, INSERT a DELETE. Pomocí těchto šesti dotazů jsme schopni v \textit{triple-storu} provádět základní CRUD operace.\par
+
+\begin{lstlisting}[language=SPARQL, caption= Příklad SELECT dotazu v jazyce SPARQL (zdroj: \url{https://www.w3.org/2009/Talks/0615-qbe/}), captionpos=b]
+PREFIX foaf:  <http://xmlns.com/foaf/0.1/>
+PREFIX card: <http://www.w3.org/People/Berners-Lee/card#>
+SELECT ?homepage
+FROM <http://www.w3.org/People/Berners-Lee/card>
+WHERE {
+    card:i foaf:knows ?known .
+    ?known foaf:homepage ?homepage .
+}
+\end{lstlisting} 
+Vyhledávání, které je pro nás důležité, je zajištěno převážně dotazem SELECT.\par
+Při vyhledávání pracovišť a lidí dle kompetencí je jednou z variant použití klíčových slov, případně i fulltextové vyhledávání. Toto ponecháváme otevřeným bodem, který závisí na konkrétní realizaci.
+% S tím souvisí celková práce s textem - analýza, lematizace, zkratky a jiné. Tato problematika je velmi rozsáhlá a je nutné se jí zabývat podrobněji a konkrétněji při realizaci takového řešení.\par 
+
+\section{Zpracování dat}
+V případě, že se nám podaří data transformovat a uložit, máme za sebou nejnáročnější část tvorby databáze znalostí. V tu chvíli budeme mít, ať už jakýmkoliv způsobem, k dispozici databázi osob, pracovišť a jejich znalostí.\par
+Dle konceptuálního modelu (příloha \ref{fig:conceptual_appendix}) se na vazbu mezi osobou a znalostí váže atribut \textit{síla znalosti}.\par 
+Existence této vazby již sama reprezentuje, že daná osoba znalost vlastní. 
+% To jinými slovy znamená, že z dostupných zdrojů víme, že osoba zná daný koncept.
+Sama tato existence nám již dává přidanou hodnotu, kterou lze využít. Není tedy nutné dále vazbu rozvíjet.\par
+Pokud však půjdeme více do hloubky, zanedbali jsme několik informací, které pro nás mohou být užitečné. Zanedbali jsme například četnost výskytů této vazby v externích zdrojích (je-li zdrojů více), nebo důvěryhodnost těchto zdrojů - jinými slovy všechny vazby mezi osobou a znalostí jsou rovnocenné. To ale ve skutečném světe tak není, osoby mají různé úrovně znalostí. V modelu, kde jsou všechny vazby rovnocenné, nelze porovnávat znalosti více osob, v případě, že se váží ke stejnému konceptu.\par
+Zaměříme se tedy ještě na tuto problematiku. Uvedeme jeden z možných způsobů, jak přistoupit k výpočtu síly znalosti.\par
+\subsection{Síla znalosti}
+Síla znalosti $I_K$ je metrika vyjádřená pomocí desetinného čísla, která se váže ke každé vazbě mezi osobou a znalostí. Předpokládáme, že máme $k$ datových zdrojů, které nám poskytují parametry: síla znalosti v rámci datového zdroje $w$ a identifikátor vlastníka pro danou znalost $K$. Tutéž vazbu nám datový zdroj může vrátit několikrát, počet těchto výskytů jedné vazby v konkrétním zdroji značíme $q$. Výpočet $I_K$ je poté realizován pomocí následujícího vzorce:
+$$I_K=\sum_{i=1}^{k}\sum_{j=1}^{q}r_i w$$
+Konstanta $r_i$  určuje spolehlivost popř. důvěryhodnost datového zdroje. Pokud jsou zdroje kategorizovány, lze jej vypočítat jako: $r_i=R_{kat} R_{zdroj}$, kde $R_{kat}$ je důvěryhodnost kategorie zdrojů a $R_{zdroj}$ důvěryhodnost zdroje, obě jsou to konstanty.\par
+Síla znalosti v rámci datového zdroje $w$ se pro každý datový zdroj může určovat jiným způsobem. Například v případě vědeckých článků se může odvíjet od některých uznávaných vědeckých indexů a podobně.\par
+V oblasti zpracování dat mohou jistě vznikat další úskalí, která bude nutné během konkrétní realizace řešit. V této sekci jsme se pouze pokusili obecně nastínit postup při odvozování síly znalosti.
+
+\section{Poskytování dat}
+Data z \textit{triple-store} databází jsou obvykle k dispozici jako tzv. SPARQL endpoint. Jak vyplývá z názvu \textit{SPARQL Protocol and RDF Query Language}, SPARQL je i komunikační protokol. Pomocí tohoto protokolu je možné provádět dotazy v jazyce SPARQL, typicky na vzdálené endpointy. Data je možné pomocí tohoto rozhraní poskytovat dalším stranám ve zvoleném formátu pro RDF triply. Protokol SPARQL staví na HTTP protokolu, endpoint je tedy identifikován pomocí URL (Uniform Resource Locator).
+
+\section{Shrnutí}
+V této kapitole jsme odpověděli na otázky ohledně zpracování získaných dat. Provedli jsme rešerši existujících postupů a technologií. Dále jsme v některých případech upozornili na otevřené body, které je nutno vyřešit při návrhu konkrétního řešení. Na toto téma navážeme v druhé části práce a k některým otevřeným bodům se vrátíme.
+
+
+
+
+
+
+
+
+
+%TODO nastudovat semináře z OSW, datová uložiště RDF/OWL/SKOS - GraphDB...
+
+
+% \paragraph{Konkrétně jsou to následující:}
+% \begin{itemize}
+% \item Kde budeme data ukládat?
+% \item Jak data zpracujeme, abychom měli všechny potřebné metriky a přidané informace?
+% \item Jak budou poté probíhat CRUD operace s daty? S důrazem na to, jak v nich budeme vyhledávat.
+% \item Jakým způsobem budeme data poskytovat?
+% \end{itemize}

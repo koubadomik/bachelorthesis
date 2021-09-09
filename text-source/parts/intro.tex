@@ -1,0 +1,39 @@
+\chapter{Úvod}
+\section{Předmluva}
+%  Dále je slovo kompetence rozebráno podrobněji, nicméně v krátkosti se jedná o schopnost osoby vykonat danou činnost správně (tj. uspokojivě popř. efektivně).\cite{cite:01}
+V této práci se budeme zabývat problematikou vyhledávání osob a pracovišť dle jejich kompetencí.
+% Kompetence osoby jsou podmíněny hned několika vlivy, zejména potom znalostmi a dovednostmi. V práci rozebereme primárně znalosti osob, jejich reprezentaci a možnosti vyhledávání.\par
+Problém budeme nejdříve řešit naprosto obecně - vyhledávání osob dle kompetencí v obecné organizaci (firma, vědecký ústav, škola). Následně rozebereme konkrétní případ takového vyhledávání na Fakultě Elektrotechnické ČVUT v Praze (FEL ČVUT).\par
+% V práci se budeme zmiňovat o problematice vyhledávání osob a pracovišť dle kompetencí, případně o tvorbě databáze kompetencí osob a pracovišť. Tyto dva problémy pro tuto práci považujeme za identické.
+% Důvodem je, že předpokládáme, že entity budeme muset nějakým způsobem uchovávat, abychom je mohli vyhledávat. Samozřejmě jedním z požadavků na způsob uchovávání bude kvalitně zajištěné vyhledávání.
+\section{Cíle a výstupy práce}
+\begin{itemize}
+    % \item Shrnout celý problém a dekomponovat jej na dílčí úkoly
+    % \item Provést rešerši teorie nutné pro pochopení zkoumané problematiky, definovat pojmy
+    % \item Dílčí úkoly vyřešit obecně a následně konkrétní případ na FEL ČVUT
+    \item Zanalyzovat problematiku vyhledávání osob a pracovišť dle kompetencí (výstup: dokument analýzy)
+    \item Navrhnout systém pro vyhledávání osob a pracovišť dle kompetencí a provést rešerši dostupných dat (výstup: dokument návrhu systému a rešerše zdrojů)
+    \item Implementovat prototyp systému pro vyhledávání osob a pracovišť dle kompetencí pro FEL ČVUT (výstup: zdokumentovaný a otestovaný prototyp navržené aplikace)
+\end{itemize}
+V pokynech k vypracování této práce jsou zmíněny další dílčí cíle, které navazují na výše zmíněné, hlavně potom na poslední dva. První cíl je přítomen kvůli systematickému přístupu k problému, který je netriviální a je třeba zhodnotit všechny okolnosti.\par
+V jednotlivých kapitolách této práce budeme cíle dále rozpracovávat.
+\section{Motivace}
+Problematika reprezentace znalostí, jejich získávání a interpretace je v dnešní době velmi rozvinutá, hlavně v oblasti umělé inteligence. Je důležité říct, že tato práce se nezabývá znalostmi přímo v kontextu umělé inteligence, použité principy však staví na stejných základech. Zejména se potom jedná o ontologie a sémantický web \cite{Stephan2007}, jakožto rychle se rozvíjející oblast datových věd.\par
+Bez pochyby nelze popřít fakt, že vyhledávání osob dle jejich kompetencí (znalostí) je snem každého pracovníka HR oddělení. Tato problematika má velké komerční využití. Jedním příkladem za všechny může být síť LinkedIn (dostupná z: \url{https://www.linkedin.com/}), pomocí které je možné nalézt odborníky z mnoha oblastí, čehož HR oddělení firem hojně využívají.\par
+Tato síť staví kompetenční podklad na profilech vytvořených samotnými vlastníky a částečně na doporučení ostatních lidí. V této práci jsme se na celý problém zaměřili s větším nadhledem. Zkoumali jsme mimo jiné i způsob, jak informace o znalostech čerpat strojově z díla dané osoby (vědecké články, patenty aj.), jelikož takové zdroje můžeme považovat za věrohodnější než ručně vyplněné profily.\par
+Na druhé straně se naskýtá i nekomerční využití, například v univerzitním prostředí je velmi typické hledat kompetentní osoby k vybraným činnostem - vedoucí závěrečné práce, konzultant k výzkumu a jiné.
+
+\section{Struktura práce} 
+Práci jsme rozdělili do dvou celků, v každém z nich rozpracováváme některé z výše uvedených cílů. Tyto cíle případně dílčí úkoly jsou definovány vždy v úvodu každé části.\par
+V první části (\ref{part:general}) rozebíráme obecný problém, který máme v rámci práce řešit. Tento problém v úvodu nejdříve rozdělíme na dílčí úkoly a ty následně v jednotlivých kapitolách rozebíráme podrobněji. Cílem této části je rozebrat každý z dílčích úkolů a navrhnout způsob řešení, přidružené technologie a další podrobnosti.\par
+Ve druhé části (\ref{part:fel}) navazujeme na první a celý problém již konkretizujeme. Převážně se věnujeme návrhu systému, kterým chceme náš problém řešit. Dále se věnujeme popisu implementovaného prototypu pro konkrétní případ užití na FEL ČVUT.
+
+% [TODO - dodělat až si budu jist, co v práci finálně zůstane]
+% Jak jsme již zmínili v úvodu, práce je rozdělena na dvě hlavní části.\par
+% - OBECNÁ ČÁST
+% - FEL ČVUT
+% [TODO rozepsat se o náplni případně i o sekcích jednotlivých částí]
+
+\section{Rozsah práce}
+Rozsah této práce je větší než je u bakalářské práce obvyklé. Důvodem je, že očekáváme další navazující bakalářské, diplomové, disertační či jiné práce. V rámci této práce jsme se rozhodli rozebrat teoretický podklad a implementovat prototyp, na kterém jsme ověřili, že navazující práce mohou téma dále rozvíjet. 
+% Celé téma je velmi obsáhlé, rozsah práce je tedy větší.

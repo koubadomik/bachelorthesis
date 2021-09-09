@@ -1,0 +1,673 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1786e9da-c574-4118-a932-1cbb92e4875d" name="Default" comment="init" />
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="955874016">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="appcache" value="2" />
+          <entry key="css" value="3" />
+          <entry key="html" value="2" />
+          <entry key="js" value="12" />
+          <entry key="json" value="4" />
+          <entry key="md" value="5" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CSS" value="3" />
+          <entry key="HTML" value="2" />
+          <entry key="JSON" value="4" />
+          <entry key="JavaScript" value="12" />
+          <entry key="PLAIN_TEXT" value="7" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="html" value="64" />
+          <entry key="js" value="2" />
+          <entry key="json" value="17" />
+          <entry key="txt" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="HTML" value="64" />
+          <entry key="JSON" value="17" />
+          <entry key="JavaScript" value="2" />
+          <entry key="PLAIN_TEXT" value="4" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="KAJ-semestral-project" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="23">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>center-wra</find>
+      <find>NUM</find>
+      <find>add</find>
+      <find>addeve</find>
+      <find>.event</find>
+      <find>/*TIMETABLE</find>
+      <find>header</find>
+      <find>addEven</find>
+      <find>AddEve</find>
+      <find>row</find>
+      <find>modal-butt</find>
+      <find>modal-button</find>
+      <find>modal-but</find>
+      <find>addEve</find>
+      <find>modal-visible</find>
+      <find>img</find>
+      <find>DETAUL</find>
+      <find>back-butt</find>
+      <find>EVENT-DEtail</find>
+      <find>drag</find>
+      <find>TIMETABLE</find>
+      <find>HELPERS</find>
+      <find>HEL</find>
+      <find>DRAG</find>
+      <find>DETAIL</find>
+      <find>section</find>
+      <find>header im</find>
+      <find>time</find>
+      <find>NOw</find>
+      <find>new Event</find>
+    </findStrings>
+    <dirStrings>
+      <dir>C:\poznamky\School\semestr4\KAJ\project\KAJ-semestral-project</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/index.html" />
+        <option value="$PROJECT_DIR$/dist/index.js" />
+        <option value="$PROJECT_DIR$/.babelrc" />
+        <option value="$PROJECT_DIR$/webpack.config.js" />
+        <option value="$PROJECT_DIR$/src/Component.js" />
+        <option value="$PROJECT_DIR$/src/Components/SchoolEvent.js" />
+        <option value="$PROJECT_DIR$/src/Components/RenderComponent.js" />
+        <option value="$PROJECT_DIR$/src/Components/Row.js" />
+        <option value="$PROJECT_DIR$/src/Components/EventDetal.js" />
+        <option value="$PROJECT_DIR$/src/media/right.svg" />
+        <option value="$PROJECT_DIR$/src/media/add_event.svg" />
+        <option value="$PROJECT_DIR$/src/media/left.svg" />
+        <option value="$PROJECT_DIR$/src/media/download.svg" />
+        <option value="$PROJECT_DIR$/src/Components/DragAndDrop.js" />
+        <option value="$PROJECT_DIR$/src/Components/Event.js" />
+        <option value="$PROJECT_DIR$/src/Components/TimetableRow.js" />
+        <option value="$PROJECT_DIR$/src/Components/TimeFormHandler.js" />
+        <option value="$PROJECT_DIR$/src/Components/TimetableTab.js" />
+        <option value="$PROJECT_DIR$/src/Utils.js" />
+        <option value="$PROJECT_DIR$/dist/resource/css/main.css" />
+        <option value="$PROJECT_DIR$/src/Components/EventFormHandler.js" />
+        <option value="$PROJECT_DIR$/../../../INS/IBM_cloud/node-helloworld-master_THIS_WORKED/node-helloworld-master/public/bundle.js" />
+        <option value="$PROJECT_DIR$/dist/resource/css/mobile.css" />
+        <option value="$PROJECT_DIR$/src/Components/Timetable.js" />
+        <option value="$PROJECT_DIR$/src/Components/EventDetail.js" />
+        <option value="$PROJECT_DIR$/dist/offline.manifest" />
+        <option value="$PROJECT_DIR$/dist/off.appcache" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/dist/index.html" />
+        <option value="$PROJECT_DIR$/src/Constants.js" />
+        <option value="$PROJECT_DIR$/src/index.js" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/package.json" />
+    </packageJsonPaths>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-10" />
+    <option name="y" value="-10" />
+    <option name="width" value="1939" />
+    <option name="height" value="1049" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Ignored.Files" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\poznamky\semestr4\KAJ\project\KAJ-semestral-project\dist\resource" />
+      <recent name="C:\poznamky\semestr4\KAJ\project\KAJ-semestral-project\src\media" />
+      <recent name="C:\poznamky\semestr4\KAJ\project\KAJ-semestral-project\dist" />
+      <recent name="C:\poznamky\semestr4\KAJ\project\KAJ-semestral-project\src" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\poznamky\semestr4\KAJ\project\KAJ-semestral-project\src\media" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",HTML5_OUTLINE_MODE" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1786e9da-c574-4118-a932-1cbb92e4875d" name="Default" comment="" />
+      <created>1520731046712</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1520731046712</updated>
+      <workItem from="1520731053844" duration="4566000" />
+      <workItem from="1521028140480" duration="300000" />
+      <workItem from="1521192603202" duration="1549000" />
+      <workItem from="1521195204434" duration="3991000" />
+      <workItem from="1521218444106" duration="2517000" />
+      <workItem from="1521233354005" duration="665000" />
+      <workItem from="1521277349906" duration="294000" />
+      <workItem from="1521374923275" duration="7857000" />
+      <workItem from="1521558383044" duration="29000" />
+      <workItem from="1522271029794" duration="6039000" />
+      <workItem from="1522335434253" duration="3560000" />
+      <workItem from="1522352430025" duration="12027000" />
+      <workItem from="1522745620390" duration="1923000" />
+      <workItem from="1522787114704" duration="384000" />
+      <workItem from="1523121567058" duration="16664000" />
+      <workItem from="1523192604376" duration="527000" />
+      <workItem from="1523443601869" duration="428000" />
+      <workItem from="1524294937395" duration="8868000" />
+      <workItem from="1524310626595" duration="9905000" />
+      <workItem from="1524342763998" duration="7115000" />
+      <workItem from="1524404709150" duration="1344000" />
+      <workItem from="1524467193333" duration="401000" />
+      <workItem from="1524502190400" duration="1118000" />
+      <workItem from="1524515158365" duration="6119000" />
+      <workItem from="1524553116155" duration="30000" />
+      <workItem from="1524648819173" duration="3565000" />
+      <workItem from="1524652968895" duration="769000" />
+      <workItem from="1524694164716" duration="6480000" />
+      <workItem from="1524737594477" duration="2325000" />
+      <workItem from="1524923486512" duration="28384000" />
+      <workItem from="1525081688948" duration="781000" />
+      <workItem from="1525115554553" duration="1002000" />
+      <workItem from="1525121521645" duration="5227000" />
+      <workItem from="1525169961795" duration="14687000" />
+      <workItem from="1525189830434" duration="145000" />
+      <workItem from="1525420975165" duration="524000" />
+      <workItem from="1525540310663" duration="572000" />
+      <workItem from="1526381842225" duration="1007000" />
+      <workItem from="1526412059004" duration="121000" />
+      <workItem from="1527326524720" duration="15535000" />
+      <workItem from="1527351876063" duration="16443000" />
+      <workItem from="1527406450393" duration="16332000" />
+      <workItem from="1527521837841" duration="3850000" />
+      <workItem from="1527534023746" duration="876000" />
+      <workItem from="1527584096372" duration="1264000" />
+      <workItem from="1527669090791" duration="56000" />
+      <workItem from="1527712154778" duration="4460000" />
+      <workItem from="1527716670450" duration="1177000" />
+      <workItem from="1527770639096" duration="2864000" />
+      <workItem from="1527855596645" duration="8531000" />
+      <workItem from="1528053617709" duration="7092000" />
+      <workItem from="1528127620605" duration="6847000" />
+      <workItem from="1528142118674" duration="17066000" />
+      <workItem from="1528161416785" duration="564000" />
+      <workItem from="1533803169230" duration="293000" />
+      <workItem from="1552414507428" duration="2189000" />
+    </task>
+    <task id="LOCAL-00001" summary="Renderable component added, Event class, Timetable class, tested on basic data.">
+      <created>1521382515032</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1521382515032</updated>
+    </task>
+    <task id="LOCAL-00002" summary="First timetable view, even some styles">
+      <created>1522364957098</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1522364957098</updated>
+    </task>
+    <task id="LOCAL-00003" summary="cols parametrized, project structure set-up">
+      <created>1524304231157</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1524304231157</updated>
+    </task>
+    <task id="LOCAL-00004" summary="grid layout, and adding of events">
+      <created>1524320589338</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1524320589338</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Scaling of timetable view">
+      <created>1524928085351</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1524928085351</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Drag and drop API, File API">
+      <created>1525186769538</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1525186769538</updated>
+    </task>
+    <task id="LOCAL-00007" summary="After refactor before responsive design changes">
+      <created>1528130847088</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1528130847088</updated>
+    </task>
+    <task id="LOCAL-00008" summary="small UI fixes">
+      <created>1528136376715</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1528136376715</updated>
+    </task>
+    <task id="LOCAL-00009" summary="mobile styles">
+      <created>1528151973849</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1528151973849</updated>
+    </task>
+    <task id="LOCAL-00010" summary="README.md updated">
+      <created>1528152447801</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1528152447801</updated>
+    </task>
+    <task id="LOCAL-00011" summary="viewport, production build (rollup)">
+      <created>1528158186314</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1528158186314</updated>
+    </task>
+    <task id="LOCAL-00012" summary="offline manifest">
+      <created>1528161164575</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1528161164575</updated>
+    </task>
+    <task id="LOCAL-00013" summary="init">
+      <created>1552416324397</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1552416324397</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="269248000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4960091" visible="true" weight="0.18109716" />
+      <window_info id="Structure" order="1" weight="0.56057006" />
+      <window_info id="Favorites" order="2" sideWeight="0.5039909" side_tool="true" weight="0.265468" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3295325" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3295325" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3298731" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50185084" side_tool="true" weight="0.2576967" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="8" visible="true" weight="0.3536068" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49814913" weight="0.29278642" />
+      <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12427287" />
+      <window_info id="Structure" order="1" weight="0.56057006" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3298731" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3295325" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3298731" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3298731" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.4173318" />
+      <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Renderable component added, Event class, Timetable class, tested on basic data." />
+    <MESSAGE value="First timetable view, even some styles" />
+    <MESSAGE value="cols parametrized, project structure set-up" />
+    <MESSAGE value="grid layout, and adding of events" />
+    <MESSAGE value="Scaling of timetable view" />
+    <MESSAGE value="Drag and drop API, File API" />
+    <MESSAGE value="After refactor before responsive design changes" />
+    <MESSAGE value="small UI fixes" />
+    <MESSAGE value="mobile styles" />
+    <MESSAGE value="README.md updated" />
+    <MESSAGE value="viewport, production build (rollup)" />
+    <MESSAGE value="offline manifest" />
+    <MESSAGE value="init" />
+    <option name="LAST_COMMIT_MESSAGE" value="init" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/.babelrc" />
+    <entry file="file://$PROJECT_DIR$/src/Component.js" />
+    <entry file="file://$PROJECT_DIR$/src/Components/SchoolEvent.js" />
+    <entry file="file://$PROJECT_DIR$/src/Components/RenderComponent.js" />
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/webstorm.jar!/resources/html5-schema/html5/phrase.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="343" column="16" selection-start-line="343" selection-start-column="16" selection-end-line="343" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/resource/media/icon.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/resource/media/right.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/resource/media/add_event.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/resource/media/left.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-277807">
+          <caret line="4515" column="4" selection-start-line="4515" selection-start-column="4" selection-end-line="4515" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/resource/media/download.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-108">
+          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../INS/IBM_cloud/node-helloworld-master_THIS_WORKED/node-helloworld-master/public/bundle.js" />
+    <entry file="file://$PROJECT_DIR$/dist/bundle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/Timetable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1426">
+          <caret line="63" selection-start-line="63" selection-end-line="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/TimetableRow.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="667">
+          <caret line="30" column="29" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/EventFormHandler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="713">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/TimeFormHandler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1035">
+          <caret line="47" column="31" selection-start-line="47" selection-start-column="31" selection-end-line="47" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/EventDetail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/DragAndDrop.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="71" selection-start-line="8" selection-start-column="71" selection-end-line="8" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/Event.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="12" selection-start-column="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/off.appcache">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/resource/css/mobile.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/resource/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-328">
+          <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="29" column="14" lean-forward="true" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/TimetableTab.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Constants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

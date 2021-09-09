@@ -1,0 +1,86 @@
+\section{Formální jazyky pro reprezentaci znalostí}
+V této sekci shrneme existující formální jazyky pro reprezentaci znalostí. Každý z nich zevrubně popíšeme, abychom v závěru této kapitoly mohli rozhodnout, který se pro naše účely hodí nejvíce.
+
+% \subsection{Rozdělení formálních jazyků}
+% Formální jazyky pro reprezentaci znalostí lze rozdělit na dvě skupiny - \textit{logic-based} a \textit{non-logic-based}. (nevhodné překládat z angličtiny)\par
+% \textit{Non-logic-based} jazyky nemají tak silné sémantické hranice, dá se říci, že jsou "méně formální". Jedná se například o sémantické sítě (popsány níže).\par
+% % Naproti tomu \textit{Logic-based} mají díky logice sémantiku přesně danou. Můžeme tedy říct, že z hlediska vlastností formálních jazyků, popsaných v sekci \ref{sec:jazyk}, jsou "více formální". Jedná se například o jazyk ALC - jazyk deskripční logiky. (popsán níže) \par
+% Speciálním případem jsou ontologie, které rozebíráme v dalších sekcí. Ontologie, jelikož staví na základech více jazyků pro reprezentaci znalostí, mají úroveň "formálnosti" modulárnější. Tato "formálnost" se často odvíjí od konkrétního případu užití a zvoleného způsobu řešení. 
+\subsection{Sémantické sítě}
+Sémantická síť je graf, jehož uzly reprezentují koncepty a individuality, hrany potom reprezentují vztahy mezi nimi.\cite{cite:10}\par
+\begin{figure}[htbp!]
+	\includegraphics[width=0.8\linewidth]{img/semantic_network.png}
+	\caption{Příklad sémantické sítě popisující některé rodinné vztahy (zdroj \cite{Stephan2007}, přeložil autor)}
+	\label{fig:semantic_network}
+\end{figure}
+\noindent \textbf{Individuality} reprezentují konkrétní objekty ze zkoumané domény, na obrázku č. \ref{fig:semantic_network} jsou to např. otec Stanislav nebo dítě Antonín.\par
+\noindent \textbf{Koncepty} jsou množiny individualit. Na obrázku č. \ref{fig:semantic_network} jsou to např. rodič a osoba, které reprezentují všechny rodiče a všechny lidi ve sledované doméně.\cite{cite:10}\par
+\par Každý uzel má své vlastnosti, jsou jimi atributy a relace. Atributem může být např. věk u osoby. Základními relacemi jsou IS-A a \textit{instance-of}. Relace IS-A definuje hierarchii konceptů (tvz. taxonomii), v obrázku č.\ref{fig:semantic_network} platí, že matka IS-A rodič. Vztah IS-A indikuje dědění všech vlastností nadřazeného konceptu konceptem podřízeným (např. matka dědí všechny vlastnosti rodiče). Vztah \textit{instance-of} je vždy mezi konceptem a individualitou, v obr. č. \ref{fig:semantic_network} platí Stanislav \textit{instance-of} otec.\cite{cite:10} Nejedná se samozřejmě o všechny druhy vazeb, jen o ty klíčové.\par
+Sémantické sítě se nejčastěji používají pro modelování deklarativních znalostí, lze je však použít i pro procedurální znalosti.\cite{cite:11}\par
+Původní význam slova \textit{sémantická sít} je \textit{fyzický model lidské paměti} \cite{cite:12}. Sémantické sítě se člověku snadněji chápou a práce s nimi je přirozenější než u dalších modelů, hlavně u těch logických.\par
+Nevýhodou sémantických sítí je, že neexistuje jednotný standard pro interpretaci a jednotný standard pro hodnoty uzlů a hran - tedy neexistuje jednotná sémantika. Další nevýhodou je dědičnost, která nepodporuje žádné výjimečné stavy (např. tučňák je pták, tedy měl by mít všechny vlastnosti ptáků, ale nelétá). \cite{cite:12}
+\subsection{Rámce}
+Síť rámců (angl. frames) lze považovat za jeden z typů sémantických sítí. Vedle deklarativních znalostí, které reprezentuje obecná sémantická síť, reprezentují rámce i procedurální znalosti.\par
+Základním stavebním kamenem této sítě jsou rámce. Ty v sobě uchovávají proceduru a skupinu atributů, které popisují danou situaci. Rámce se inspirují v lidské paměti, která si uchovává situace - kombinace procedurálních a deklarativních znalostí. Tak může lidský mozek například na dvě, na první pohled rozdílné, situace reagovat stejným způsobem, protože nalezne podobnost.\cite{cite:11}\par
+Rámce řeší některé nedostatky sémantických sítí jako je: řešení výjimečných stavů, kontrola vnitřní konzistence a zamezení konfliktům atributů při dědičnosti. Hlavní nevýhodou je složitost použití.\cite{cite:12}
+\subsection{Pravidla}
+Deklarativní i procedurální znalosti lze reprezentovat jako množinu pravidel. Typický tvar těchto pravidel je tzv. JESTLIŽE-PAK (angl. IF-THEN), například \textit{jestliže je nalezena odpověď, pak jí přestaň hledat, jinak pokračuj v hledání}\cite{cite:11}. Takovou reprezentaci využívají např. logické programovací jazyky.\cite{cite:12}\par
+Výhodou pravidel je, že jsou modulární a zároveň jsou poměrně prostorově nenáročná. Jednotlivá pravidla mohou být přidávána a odebírána bez ovlivnění zbylých. Mezi nevýhody patří hlavně složitost odhalení rozporu mezi pravidly a složitost reprezentace složitějších strukturovaných znalostí (svazuje nás přesná forma). V neposlední řadě je velmi složité předpovědět akce, které na základě pravidel nastanou, a tak se pravidla mohou nekonečně řetězit.\cite{cite:12}\par
+Pravidla se samozřejmě (např. v programovacích jazycích) aktivně využívají, ale nehodí se pro reprezentaci komplexních znalostí. V programovacích jazycích se používají velmi hojně pro řízení toku programu, ale oproti reprezentaci celé zkoumané domény znalostí je to stále poměrně málo.
+\subsection{Logika}
+Logika mezi ostatními formálními jazyky pro reprezentaci znalostí převládá \cite{Stephan2007}. V této sekci projdeme klíčové koncepty logiky, nejdříve se zaměříme na obecnou rovinu, poté popíšeme více do detailu deskripční logiku.\par
+Logika má mnoho forem, některé z nich se používají, nebo alespoň byly použity, pro reprezentaci znalostí. \cite{cite:12} Jen některé z těchto vyzkoušených forem se osvědčily. \par
+V předchozích způsobech reprezentace, zejména potom u sémantických sítí, chyběla jednotně definovaná sémantika, proto je velmi komplikované tyto způsoby přímo aplikovat. \cite{Stephan2007} Znalosti vyjádřené pomocí sémantických sítí mohou být jednoduše vyjádřeny formou logiky, která sítím přidává potřebnou sémantiku. \cite{cite:12}\par
+\noindent Následující dvě zobrazení reprezentují totéž:\par
+\vspace{3mm}
+\noindent\fbox{Zaměstnanec} $\xrightarrow{\text{\textit{je druhem}}}$ \fbox{Osoba} \indent
+$\forall x: (Zaměstnanec(x) \to Člověk(x))$
+\par\vspace{4mm}
+\noindent Stejně jako je tomu u sémantických sítí, tak i u logiky platí, že jsme pomocí ní schopni vyjádřit naprostou většinu přirozeného jazyka. Je důležité si uvědomit, že přestože má logika v sémantice navrch nad sítěmi, sítě jsou intuitivnější pro lidské chápání. \par
+Formální jazyky založené na logice obvykle zakládají na logice prvního řádu (predikátové logice), zkratka FOL.\cite{cite:12}\par
+
+\subsubsection{Deskripční logika}
+Deskripční logika je natolik expresivním jazykem, že se v dnešní době stala nejčastějším logickým paradigmatem pro reprezentaci znalostí, zejména potom v sémantickém webu. \cite{Stephan2007}.\par
+Deskripční logika je téměř výhradně podmnožinou logiky prvního řádu (FOL), tedy logiky predikátové \cite{Stephan2007}. FOL popisuje doménu pomocí objektů (entity mající vlastní identitu), okolo těchto entit jsou konstruovány, pomocí funkcí, proměnných a logických spojek, logické vzorce (predikáty) \cite{Russell:2009:AIM:1671238}. Deskripční logika je typicky omezena pouze na unární a binární predikáty z FOL. \cite{Stephan2007}\par
+\paragraph{Základními konstrukty jsou:}
+\begin{itemize}
+\item Atomické koncepty
+\begin{itemize}
+\item reprezentují pojmenované unární predikáty
+\item např. \textit{Rodič}
+\end{itemize}
+\item Atomické role
+\begin{itemize}
+\item reprezentují pojmenované binární predikáty
+\item např. \textit{má dítě, je dítětem}
+\end{itemize}
+\item Individuality
+\begin{itemize}
+\item reprezentují prvky konceptů, tzn. jednotlivce
+\item např. \textit{Jiří} \cite{Kremen2011}
+\end{itemize}
+\end{itemize}
+\paragraph{Znalostní báze většiny deskripčních logik se skládá z \cite{Stephan2007}:}
+\begin{itemize}
+\item \textit{T-Box} - reprezentuje axiomy obecně platné v dané doméně
+\begin{itemize}
+\item např. \textit{Muž je osoba}
+\end{itemize}
+\item \textit{A-Box} - reprezentuje konkrétní relační strukturu
+\begin{itemize}
+\item např. \textit{Jiří je muž} \cite{Kremen2011}
+\end{itemize}
+\end{itemize}
+Jednotlivé deskripční logiky se liší v možnostech tvořit složitější koncepty případně role a v typech axiomů \cite{Kremen2011}.
+Jeden z nejdůležitějších a nejpoužívanějších jazyků deskripční logiky je ALC. \cite{Stephan2007}
+
+\input{parts/general/data-representation/ontologies.tex}
+
+\subsection{Reprezentace a datová struktura}
+Každá reprezentace je nakonec realizována pomocí některé známé datové struktury. Například u sémantické sítě je to typicky graf. Je důležité striktně dodržovat sémantiku dané reprezentace, která ne vždy platí obecně pro použitou datovou strukturu. Například sémantická síť popisující rodinné vztahy v sobě netoleruje cykly, to ale pro obecný graf neplatí. \cite{cite:09}
+
+
+
+
+% TODO: 
+% jednotlivé zhodnotit - napsat vhodné použití apod., zkusit se zaměřit na ohledy vyhledávání v těchto informacích pomocí fulltextu...(snad)

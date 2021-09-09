@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge search</title>
+    <link rel="stylesheet" href="./resource/css/main.css">
+</head>
+<body>
+<header><h1>Knowledge search</h1></header>
+<main>
+    <div class="main-col">
+        <h2>Search</h2>
+        <div class="main-col-row">
+            <label for="concept-choice">Search: </label>
+            <input id="concept-choice" list="concepts" name="concept-choice" type="text">
+            <datalist id="concepts">
+                <!--GENERATED-->
+            </datalist>
+        </div>
+        <p>Status: <span id="status"></span></p>
+        <div id="result-list">
+            <table>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>Info</th>
+                    <th>Metric</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <!--GENERATED-->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+<script src="bundle.js"></script>
+</body>
+</html>

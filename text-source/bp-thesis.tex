@@ -1,0 +1,121 @@
+\documentclass {ctuthesis}
+\usepackage{dirtytalk}
+% \usepackage{listings}
+\usepackage{float}
+\usepackage{graphicx}
+% \usepackage{glossaries}
+\graphicspath{ {./img/} }
+
+% \usepackage[table,xcdraw]{xcolor}
+\usepackage{tabularx}
+
+\usepackage{rotating}
+
+\usepackage{nomencl}
+\providecommand{\printnomenclature}{\printglossary}
+\providecommand{\makenomenclature}{\makeglossary}
+\renewcommand{\nomname}{Slovník}
+\settowidth{\nomlabelwidth}{AAAAAAAA}
+\makenomenclature
+
+\usepackage{afterpage}
+
+\newcommand\blankpage{
+    \null
+    \thispagestyle{empty}
+    \addtocounter{page}{-1}
+    \newpage
+    }
+
+
+\ctusetup{
+    pkg-listings = true,
+	doctype-czech = {Bakalářská práce},
+	xfaculty = F3,
+	mainlanguage = czech,
+	titlelanguage = czech,
+	title-english = {Competency-based employee search},
+	title-czech = {Vyhledávání zaměstnanců dle kompetence},
+	department-czech = {Katedra počítačů},
+	author = {DOMINIK KOUBA},
+	supervisor = {Ing. Lukáš Zoubek},
+	supervisor-address = {Katedra ekonomiky, manažerství a humanitních věd},
+	fieldofstudy-czech = {Softwarové inženýrství a technologie},
+% 	subfieldofstudy-czech = {žádné},
+	keywords-czech = {kompetence, vyhledávání, osoba, pracoviště, znalost, FEL, ČVUT, ontologie, SKOS}, %TODO
+	keywords-english = {competence, search, people, workplace, knowledge, FEE, CTU, ontology, SKOS}, %TODO
+	front-specification = true,
+	specification-file = {zadani.pdf}, % PDF s tvym zadanim prace
+	day = 21,
+	month = 5,
+	year = 2019,
+}
+
+
+
+% ===========================
+
+% \include{glossary.tex}
+
+% =========================
+
+\ctuprocess
+
+\addto\ctucaptionsczech{%
+	\def\supervisorname{Vedoucí}%
+}
+
+%===================================================================
+% \afterpage{\blankpage}
+% Podekovani
+\input{parts/thanks.tex}
+
+% Prohlaseni
+\input{parts/declaration.tex}
+
+
+%Abstrakt
+\input{parts/abstract.tex}
+
+%===================================================================
+
+
+\begin{document}
+	\maketitle
+    % \afterpage{\blankpage}
+	\input{parts/intro}
+% 	\afterpage{\blankpage}
+	\part{Obecný problém} \label{part:general}
+% 	\afterpage{\blankpage}
+    \input{parts/general/problem-decomposition.tex}
+    \input{parts/general/terms.tex}
+    \input{parts/general/conceptual.tex}
+    \input{parts/general/data-representation/data-representation.tex}
+    \input{parts/general/data-sources.tex}
+    \input{parts/general/data-processing.tex}
+    \input{parts/general/summary.tex}
+    % \afterpage{\blankpage}
+	\part{FEL ČVUT} \label{part:fel}
+% 	\afterpage{\blankpage}
+    \input{parts/fel/fel-intro.tex}
+    \input{parts/fel/data-sources-analysis.tex}
+    \input{parts/fel/app-design-analysis.tex}
+    \input{parts/fel/implementation.tex}
+    \input{parts/fel/testing.tex}
+    \input{parts/future}
+    % \afterpage{\blankpage}
+	\input{parts/conclusion}
+	
+	\bibliographystyle{acm}
+	\bibliography{ctubib}
+	
+	
+	\input{glossary.tex}
+	
+	
+% 	\printglossary[type=\acronymtype]
+	
+	\input{parts/prilohy}
+	
+\end{document}
+

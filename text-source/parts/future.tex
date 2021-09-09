@@ -1,0 +1,71 @@
+\chapter{Budoucí práce} \label{future}
+\section{Neprobraná témata}
+Během práce jsme narazili na několik témat, které jsme z rozsahu této práce vyloučili. Není však pravda, že tato témata nemají potenciál, proto je zmiňujeme zde.\par
+\subsection{Osobnost a dovednosti}
+V sekci zabývající se reprezentací dat (kapitola č. \ref{chap:data_representation}), jsme se rozhodli zanedbat část z vlivů na kompetence osoby - osobnost (povaha, motivy). Toto téma je velmi komplexní z hlediska reprezentace těchto dat i z hlediska potenciálních datových zdrojů - vlastní popis sama sebe, reference zaměstnavatele a jiné.\par
+Ve stejné sekci jsme vyloučili dovednosti, v této práci jsme je v podstatě sloučili se znalostmi. Znalosti však nejsou totéž co dovednosti. Společně se zkušenostmi by dovednosti měli být dalším důležitým okruhem, který staví na znalostech a popisuje, jak je osoba umí využívat.
+\subsection{Vlastní datový zdroj}
+V sekci týkající se datových zdrojů (kapitola č. \ref{chap:data-sources-analysis}) jsme rozebrali primárně zdroje, které již existují. Je možné vytvořit vlastní zdroj - např. na základě vstupů od osob (formulář pro tvorbu profilu v databázi kompetencí). Případně je možné vlastní zdroj vytvořit z existujících - anotace existujících dat a podobně.
+\subsection{Nestrukturovaná data}
+V sekci zpracování dat (kapitola č. \ref{chap:processing}), konkrétně jejich transformace do požadovaných formátů, jsme se zaměřili pouze na serializovaná/strukturovaná data. Data však nejsou vždy k dispozici v takto strojově dobře čitelném formátu. Často jsou nestrukturovaná a nevhodná pro strojové zpracování např. prostý text. Zde se jedná o problematiku sémantické anotace dat, zpracování přirozeného jazyka a podobně.
+Jedná se např. o zdroje jako jsou životopisy nebo osobní stránky.
+\subsection{Transformace dat}
+V rámci návrhu systému v kapitole č. \ref{chap:app-design} jsme pro komplexnost nerozebrali část transformace dat z existujících zdrojů do zvolené reprezentace (nebylo to součástí zadání této práce). Pokud má systém fungovat v praxi, je třeba data vhodným způsobem získávat a transformovat. Toto souvisí s bodem výše, data mohou být buď strukturovaná, nebo bude třeba je vhodným způsobem strukturovat.
+
+\section{Navazující práce}
+V rámci této práce jsme potvrdili, že námi zvolený způsob lze po dalších rozšířeních aplikovat v praxi. V této sekci shrneme, v jakých oblastech lze řešení dále posouvat.
+\section{Výkon}
+Triple-store databázi jsme použili pro uložení veškerých dat - osoby, pracoviště i znalosti. Do budoucna bude lepší ukládat v ní jen znalostní bázi. Osoby, pracoviště a další potřebná data je lepší strukturovat v jiném úložišti.\par
+% V rámci našeho řešení jsme nekladli důraz na implementační detaily, jelikož se jedná více o prototyp, který prokazuje funkčnost. Při vyhledávání bude lepší používat parametry jako je offset a limit, pro efektivnější práci s koncepty.
+\section{Zvolený potup}
+Námi zvolený postup popsaný v kapitole č. \ref{chap:implementation} má jisté nedostatky. Zároveň je také důležité vyzkoušet jiná možná řešení, abychom mohli rozhodnout, které je nejefektivnější.\par
+\paragraph{Další oblasti pro rozvoj:}
+\begin{itemize}
+    \item Fulltext - v GraphDB nebo v jiné databázi; Elastic search - \url{https://www.elastic.co/}
+    \item Jiné způsoby agregace dat pro získání výsledných metrik (síla znalosti apod.)
+    \item Zapojení dalších druhů databází (např. dokumentové, relační)
+    \item Zapojení vyvozování (angl. reasoning) pro validaci konzistence dat a získávání dalších dat v triple-store databázi
+\end{itemize}
+
+
+% - Bez ohledu na řešení BP by bylo dobré zamyslet se nad využitím http://graphdb.ontotext.com/documentation/standard/plug-ins.html - fulltext, mongo, semantic search
+% - pomocí OWL mohu data více popisovat - jejich omezení, závislosti apod.
+% NÁPADY:
+% - Vyhledávat klíčová slova pomocí ELASTIC SEARCH, ty až poté propojovat s koncepty v OntoDB
+% -----> UC: 
+%           1. Uživatel zadá klíčové slovo
+%           2. Systém klíčové slovo vyhledá mezi dostupnými daty (např. v ES datasource) a zjistí k čemu se dané slovo váže (buď to bude v ellastic search přímo takto uloženo, nebo využije některou z externích služeb, než nenalezne slovo, které se váže k zadanému a zároveň pro něj existje koncept v ontoDB)
+%           3. Systém vrátí seznam relevantních lidí (dle toho, co našel v ES (třeba jen autorství), nebo toho, co je v ontoDB u konceptu jako vlastník) nějak seřazeno dle váhy záznamu, ve kterém jsme info našli
+% - DB dokumentů s klíčovými slovy, zkusit využít SKOS opravdu jen jako slovník, v kterém to vyhledám a pak klíčová slova naleznu někde v mongu v těch dokumentech (např. v těch vědeckých pracích)
+% HINTY:
+% - skos:Concept is an instance of owl:Class
+
+% BP:
+% Myslím, že vyhledávání budu realizovat nějak takhle:
+
+% 1. Uživatel záda klíčová slova (jednoduchý string, případně sousloví oddělené mezerou, reprezentující jeden koncept, např. Umělá inteligence)
+%  - toto se dá diskretizovat pomocí našeptávače na straně klienta - (to udělám asi nejdříve, poté se budu zabývat spojitým protorem slov)
+% 2. Dle zadaného vyhledám koncept (GRAPHDB má něco pro fulltext search/semantic search, zkusím to)
+% 3. Naleznu objekty knowledge v okolí konceptu a dle vzdálenosti a typu vazeb a atributu weight jim přidělím nějakou relevanci (double <0,1>)
+
+% 4. Dle této relevance potom seradim osoby vážící se k objektům knowledge  a jejich seřazený seznam vrátím.
+
+% Udělat si vlastní slovník SKOS - jednodušší
+% Postup s DB: (viz papír)
+% nejdříve se zeptat relační DB, na přímé vazby mezi hledaným konceptem a lidmi
+
+% 	1. Vyselectovat si podgraf - od osob k hledanému konceptu
+% 	2. Vyhledat cesty k hledanému konceptu, vypočítat váhu (zapojit veličinu - délku cesty, váhu znalosti, případně typy vazeb na cestě (defaultně vzít skos:semanticRelation))
+
+% alternativa:
+% 	1. Vyselectovat si podgraf okolo hledaného konceptu, třeba 1-5 poloměr
+% 	2. Vyhledat blízké objekty knowledge, vypočítat váhu
+
+% V obou případech si ukládat koncepty a lidi do relační DB, prohledávání grafu realizovat mimo DB - vyexportovat si data
+
+
+
+ 
+
+
+

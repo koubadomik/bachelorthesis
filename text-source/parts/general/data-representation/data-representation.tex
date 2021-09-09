@@ -1,0 +1,62 @@
+\chapter{Reprezentace dat} \label{chap:data_representation}
+V této kapitole odpovíme na otázku \textit{Jak budeme data ukládat?}. Rozebereme tedy možnosti reprezentace jednotlivých entit z konceptuálního modelu (obr. \ref{fig:conceptual_appendix}). V závěru této sekce bude jasné, která reprezentace je pro náš případ nejvhodnější a proč.\par
+Některé entity z konceptuálního modelu je možné reprezentovat poměrně jednoduše~-~osoby a pracoviště. Stačí nám na to objektové paradigma \cite{Wegner:object_oriented}, které se obvykle při modelování systémů používá.\par
+Naproti tomu pracujeme s kompetencemi, znalostmi, dovednostmi a osobností. Modularita těchto entit je větší než u osob a pracovišť. Reprezentovat je klasickým objektovým způsobem může být velmi komplikované. U těchto entit je třeba jít do většího detailu. Reprezentaci osob a pracovišť můžeme později přizpůsobit dle zvolené reprezentace ostatních entit.\par
+% \paragraph{Dílčí otázky}:
+% \begin{itemize}
+%     \item [] \textit{U kterých entit rozebereme reprezentaci dopodrobna?}
+%     \item [] \textit{Jaké jsou varianty reprezentace těchto entit a jaké jsou jejich klady a zápory?}
+%     \item [] \textit{Jaké existují praktické realizace - implementované formální jazyky, notace apod.?}
+% \end{itemize}
+
+\section{Kompetence}
+Kompetence osoby, jak je vidět z konceptuálního modelu (příloha \ref{fig:conceptual_appendix}), podmiňují dva vlivy, osobnost a znalosti (resp. dovednosti). Tyto dvě oblasti určují jaké kompetence daná osoba má a v jaké míře.\par
+\subsection{Vymezení}
+Reprezentace osobnosti tvoří velmi komplikovanou problematiku, na toto téma odkážeme v sekci budoucí práce (kapitola \ref{future}), jelikož stojí za další zkoumání. V této práci se tímto však nebudeme více zabývat, místo toho se zaměříme na znalosti.\par
+Omezíme se na reprezentaci kompetencí pomocí znalostí a dovedností a připodobníme míru kompetence k síle znalosti popř. dovednosti, z diagramu (příloha \ref{fig:conceptual_appendix}). 
+% Přestože se jimi nebudeme přímo zabývat, budeme v této práci stále brát v úvahu pozdější rozšiřitelnost o další vlivy na kompetence.
+\par
+Dále problematiku zúžíme pouze na znalosti, jelikož z definice dovednosti plyne, že je závislá na znalosti. Není správné dovednosti úplně vyloučit, i na ně odkážeme v kapitole budoucí práce (kapitola \ref{future}). Společně se zkušenostmi by měly být dalším důležitým okruhem, který staví na znalostech a mimo jiné popisuje, jak je osoba umí využívat.\par
+Otázku jsme tedy zúžili z reprezentace kompetencí na reprezentaci znalostí, na tu se zaměříme v další sekci.
+\section{Znalosti} \label{sec:knowledge_representation}
+Reprezentace znalostí (angl. \textit{knowledge representation}) je společně s uvožováním (angl. \textit{reasoning}) prudce se rozvíjejícím oborem umělé inteligence. V této sekci popíšeme, co vůbec reprezentace znalostí je a představíme si vybrané formální jazyky, které pro tuto reprezentaci lze využít (v některých zdrojích se mluví o formalismech, v jiných o formách, my jim budeme říkat formální jazyky, protože, to je zdaleka nejjednoznačnější pojmenování).
+\subsubsection{Co je reprezentace znalostí}
+Dříve než přistoupíme ke konkrétním formálním jazykům, musíme si ujasnit termín reprezentace znalosti. Reprezentace znalostí se dá shrnout do čtyř základních charakteristik:
+\begin{itemize}
+\item Náhrada reality
+\item Množina ontologických závazků
+\item Fragmentární teorie inteligentního uvažování
+\item Prostředek pro počítač i člověka \cite{cite:09}
+\end{itemize}
+\subsubsection{Náhrada reality}
+Pod touto charakteristikou leží základní filozofický předpoklad, že realita existuje nezávisle na jakémkoliv pozorovateli - počítači, člověku aj.\par
+Náhrada reality, tedy reprezentace znalosti, nám umožňuje uvažovat a modelovat situace. Základem uvažování je vyvozování závěrů bez samotných činů. Příkladem může být plán stavby domu. Aniž bychom do ruky vzali jediný nástroj či materiál, jsme schopni dům zkonstruovat v rozsahu svých znalostí pouze ve vlastní hlavě.\par
+Kvalita a rozsah naší reprezentace se vždy odvíjí od přesného účelu, pro který znalosti používáme/uchováváme. Je velmi nepravděpodobné, že by se nám podařilo reprezentovat naprosto všechno bez rozdílu od reality, je proto důležité vědět, jak moc a čím se reprezentace od reality liší.\cite{cite:10}
+\subsubsection{Ontologické závazky} \label{ontological_commitments}
+Předpokládáme, že nelze reprezentovat vždy všechno, každá reprezentace je v podstatě jen aproximací reality. Reprezentaci volí sám pozorovatel, tím dělá rozhodnutí, které znalosti bude reprezentovat a jak. Volba nejpříhodnější reprezentace je tedy množinou takových rozhodnutí - přesněji ontologických závazků.\cite{cite:09}
+\subsubsection{Fragmentární teorie inteligentního uvažování}
+Reprezentace znalostí je známka inteligentního chování. Existují nejméně dva pohledy na to, co je inteligentní chování. První z nich odkazuje na logiku a říká, že cokoliv, co se chová podle logických pravidel, je inteligentní. Druhý pohled nahrazuje logická pravidla množinou mechanizmů inspirovaných procesem poznáváním.\cite{cite:10} \par 
+Oběma těmito přístupy se existující formální jazyky inspirují, některé využívají logiku, některé proces poznávání. \cite{cite:10}
+\subsubsection{Prostředek pro počítač i člověka}
+Počítačové zpracování znalostí reprezentovaných formálními jazyky pro to určenými musí být efektivní. Často platí, že čím je jazyk složitější, tím je složitější jej zpracovat.\cite{cite:10} \par 
+Naproti tomu musí být jazyk dobře pochopitelný pro člověka. Zde se nabízí přirozený jazyk, ten však díky svým vlastnostem (kapitola č. \ref{sec:terms} sekce č. \ref{sec:jazyk}) není vhodný. Bude-li jazyk špatně pochopitelný pro člověka, nebude možné rychle ověřit pravdivost/důvěryhodnost sdělení vyjádřeného pomocí tohoto jazyka. Takový jazyk vědecká ani komerční komunita nepřijme. \cite{cite:10}
+
+\input{parts/general/data-representation/knowledge-formalisms.tex}
+
+
+\section{Shrnutí}
+Cílem této kapitoly bylo odpovědět na další z dílčích otázek našeho problému: \textit{Jak budeme data ukládat?}. Rozebrali jsme tedy možnosti reprezentace jednotlivých entit a nyní můžeme rozhodnout, která je pro naše účely nejvhodnější.\par 
+Je důležité zmínit, že námi zvolený postup jistě není jediný možný. Přestože v této kapitole vybereme jednu z představených možností, nadále budeme pracovat tak, aby naše řešení bylo modulární. Budeme jej navrhovat tak, aby jeho části bylo možné nahrazovat vylepšenými případně změněnými (hlavně při návrhu systému - kapitola č. \ref{chap:app-design}).\par
+Klíčovou částí této kapitoly byly formální jazyky pro reprezentaci znalostí. Jazyky byly představeny s vzestupnou tendencí, co se týká praktického použití. První představené, hlavně sémantické sítě, byly lépe pochopitelné pro člověka, ale postrádaly dostatečně definovanou sémantiku pro praktické aplikace. Naproti tomu později představená deskripční logika je kvalitnějším jazykem, jelikož předchozím formálním jazykům dodává zmíněnou potřebnou sémantiku.\par
+Nakonec jsme se v této kapitole zabývali ontologiemi. Ontologie jsou více realizací zmíněných formálních jazyků, než že by do této problematiky přinášeli něco úplně nového. Ontologie staví na deskripční logice a přebírají expresivitu tohoto jazyka, zároveň jsou vizualizovány pomocí sémantických sítí, které jsou pro práci přehlednější pro člověka. V kontextu ontologií existují konkrétní jazyky (RDF, OWL) a praktické aplikace (SKOS), které jsou již ověřené.\par
+Vzhledem k vlastnostem, které jsme zmínili, jsou ontologie a množina přilehlých technologií v našem případě vhodnou volbou pro reprezentaci znalostí.\par
+
+% Volba ontologie, pro tuto práci, shrnuli jsme však teoretický základ pro další směry
+% Zmínit se o osobách a pracovištích
+
+% Následujícím úkolem je zajistit, jak data, která máme k dispozici, transformovat do zvolených reprezentací - ontologií. Této výzvě však předchází ještě analýza datových zdrojů, která by nám měla ukázat, jakou povahu naše data budou typicky mít. Na základě této znalosti budeme schopni rozhodnout o transformaci. Na datové zdroje se zaměříme v další kapitole.
+
+% POZOR - měli bychom si uvědomit nejdříve proč ty data chceme vůbec reprezentovat - to nám v pozdější sekci pomůže říct, co je pro nás lepší (https://www.matthewrenze.com/presentations/transforming-data-into-knowledge.pdf) Náš účel bude data exploration (úzce propojeno s vizualizací.
+% \section{Osoby a pracoviště}
+% Tyto dvě třídy mají pouze prosté atributy a neměl by být problém je reprezentovat různými způsoby. Osoba samozřejmě vlastní kompetence, znalosti a osobnost, proto bude n
+

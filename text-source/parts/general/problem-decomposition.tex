@@ -1,0 +1,29 @@
+\chapter{Dekompozice problému} \label{chap:decompisition} %PROVED
+% V následující kapitole jsme se zaměřili na dekompozici obecného problému, který v rámci této práce řešíme. Jednotlivým dílčím problémům se budeme věnovat v této části práce.
+% \section{Rozbor zadání}
+Konečným cílem naší práce je navrhnout na FEL ČVUT řešení pro vyhledávání osob a pracovišť dle jejich kompetencí. Předtím než přistoupíme k tomuto konkrétnímu problému, je třeba se na celou záležitost podívat obecněji. Zcela obecným problémem, který je třeba vyřešit, je vyhledávání osob a pracovišť dle jejich kompetencí ze specifikované množiny lidí (např. firma, stát, univerzita). Na dekompozici tohoto obecného problému se zaměříme v následující sekci. Situací na FEL ČVUT se budeme zabývat v další části práce (\ref{part:fel}).\par
+% \section{Rozpad na dílčí problémy}
+% Na první pohled je zjevné, že úkol nemá pouze jedno možné řešení a že se skládá z několika neméně náročných úkolů.\par
+\section{Seznam dílčích úkolů}
+\begin{enumerate}
+\item Datový model a datová struktura používaná pro uložení dat
+\begin{itemize}
+\item Která data potřebujeme?
+\item Jak budeme data ukládat?
+\end{itemize}
+\item Zdroj potřebných dat
+\begin{itemize}
+\item Kde data získáme?
+\item Jak je získáme?
+\end{itemize}
+\item Zpracování získaných dat
+\begin{itemize}
+\item Jak data transformujeme do příslušné datové struktury?
+\item Jak data dále zpracujeme, abychom získali naší přidanou hodnotu (všechny potřebné metriky a přídavné informace)?
+\item Jakým způsobem budeme provádět operace s daty (vyhledávání, editace, vytváření, mazání)?
+\item Jakým způsobem budeme data poskytovat?
+\end{itemize}
+\end{enumerate}
+V následujících kapitolách rozebereme jednotlivé problémy podrobněji.
+% Poté, co budeme znát řešení jednotlivých částí, budeme schopni dílčí řešení zakomponovat do jednoho celistvého řešení.
+

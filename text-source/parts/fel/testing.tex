@@ -1,0 +1,149 @@
+\chapter{Testování} \label{chap:testing}
+V následující kapitole rozebereme testování.
+% Klientská část slouží pouze pro demonstraci funkčnosti serverové, nejedná se o plnohodnotnou aplikaci, není třeba jí testovat.
+Kapitola bude mít dvě části. V první z nich rozebereme obecně, jakým způsobem lze testovat hexagonální architekturu. V druhé části demonstrujeme některé z představených druhů testů na našem prototypu.
+\section{Testování hexagonální architektury}
+Alistar Cockburn, který hexagonální architekturu nejvíce prosadil, zmiňuje jako jeden z hlavních přínosů této architektury právě izolované testování. Primárně mluví o automatizovaném testování domény, odstíněném od ostatní infrastruktury (databáze, API jiných systémů) \cite{cockburn}. Doména obsahuje hlavní případy užití, je velmi výhodné je testovat izolovaně od všeho ostatního a hlavně automatizovaně.\par
+\noindent Testování hexagonální architektury může probíhat na všech částech systému, nejen na doméně.
+\paragraph{Rozdělení testování:}
+\begin{itemize}
+    \item Testování domény
+    \item Testování SPI
+    \item Testování API
+\end{itemize}
+\subsection{Testování domény}
+Testy domény jsou architektonicky na stejné úrovni jako jsou API adaptéry, ve své podstatě se jedná o API adaptéry \cite{cockburn}. Tyto adaptéry volají implementaci API portů, které obsahují logiku, a tuto logiku testují. Logika (případy užití) je dále nabízena ostatním systémům, je tedy nutné jí otestovat.\par
+V případě tohoto druhu testování je důležité doménu izolovat od ostatních vlivů, v podstatě se jedná o jednotkové testování. Ostatními vlivy jsou v tomto kontextu myšleny SPI adaptéry, které můžeme nahradit například mock objekty \cite{cockburn}. Jinými slovy můžeme SPI adaptéry, které slouží integraci s jinými systémy, nahradit dalšími adaptéry, které budou tuto integraci pouze předstírat a budou vracet námi definovaný správný výsledek.
+\subsection{Testování SPI}
+Poté co zajistíme doménu, je třeba zajistit, že SPI adaptéry budou poskytovat všechna data ve správné podobě (v podobě jako v mock objektech).\par
+SPI adaptéry resp. moduly, které obsahují SPI adaptéry, mohou mít libovolnou vnitřní architekturu. Tuto architekturu je třeba testovat tak, jak je pro ní typické, a tak zajistit funkčnost SPI adaptérů.\par
+Na klasické vrstevnaté architektuře (obdoba brownovy architektury \ref{tab:brown}) lze například provádět testování po jednotlivých vrstvách jako je tomu zvykem. Obvyklé je využití mock objektů, in-memory databází a obdobných technik.
+\subsection{Testování API}
+Posledním modulem, který zbývá jsou API adaptéry. Existují různé druhy těchto adaptérů, pro testování bereme v úvahu hlavně REST a GraphQL.\par
+Tento druh testování se v případě malé aplikace může provést ručně. V komplikovanějších případech existují různé testovací knihovny a frameworky (například HttpClient - \url{http://hc.apache.org/httpcomponents-client-ga/index.html}). Tyto knihovny typicky volají API systému a kontrolují funkčnost, jako například návratové kódy.
+
+\section{Testování implementované aplikace}
+Prototyp aplikace, který jsme v rámci této práce vyvinuli se nejvíce opírá o modul \ctulst(none)!gdb_solution!, na ten je třeba se zaměřit při testování nejintenzivněji.\par
+\noindent Oblasti naší aplikace k testování:
+\begin{itemize}
+    \item Persistentní vrstva modulu \ctulst(none)!gdb_solution!
+    \item Logika modulu \ctulst(none)!gdb_solution!
+    \item REST API
+\end{itemize}
+Samozřejmě je možné zapojit další druhy testů, vzhledem k rozsahu prototypu jsou však tyto tři úrovně dostačující.
+% Hlavním důvodem, proč jsme další testy neimplementovali je fakt, že další integrace mezi moduly jsou bez jakékoliv složitější logiky vhodné k testování.
+\section{Průběh testu}
+Testy jsou v naší aplikaci vždy rozděleny na tři části:
+\begin{itemize}
+    \item \textit{arrange} - příprava akce (inicializace instancí, jiné integrační akce a podobně)
+    \item \textit{act} - testovaná akce
+    \item \textit{assert} - ověření výsledku
+\end{itemize}
+\subsection{Testování persistentní vrstvy}
+Integrační testy persistentní vrstvy jsou v kontextu naší práce klíčové. Hlavně proto, že nepoužíváme jiné datové úložiště než graphDB. Navíc hlavní dotaz pro vyhledávání osob dle znalosti probíhá pomocí SPARQL na této úrovni.\par
+Při testování integrace se používá testovací repozitář GraphDB. Hlavním důvodem je, že integrační testy musí mít izolované prostředí, nezávislé na ostatních (produkčních a podobně).
+\subsubsection{Pokrytí testy}
+Jelikož je modul \ctulst(none)!gdb_solution/dao! naprogramován genericky, je poměrně přímočaré otestovat společné metody dao objektů (CRUD). Individuálně se testují jen specifické funkce jednotlivých dao objektů, v našem případě jen \ctulst(none)!PersonDao!.
+\subsubsection{Příklad integračního testu s popisem}
+Níže je k vidění příklad integračního testu, který testuje metodu \ctulst(none)!findAll!. Test probíhá nad entitou \ctulst(none)!PersonGDB!, nicméně se jedná o generickou metodu, testujeme tedy i ostatní entity. V části \textit{arrange} připravujeme prostředí, tedy vytváříme tři instance entity osoba a zapisujeme je do testovacího repozitáře graphDB. V části \textit{act} čteme všechny záznamy osob z repozitáře graphDB. V části \textit{assert} kontrolujeme obsah výsledku s obsahem původního seznamu, používáme k tomu funkce \ctulst(none)!assertEquals! a \ctulst(none)!assertTrue! z knihovny JUnit 4 (\url{https://junit.org/junit4/}). 
+\begin{lstlisting}[language=JAVA, caption= Příklad integračního testu, captionpos=b]
+    @Test
+    public void findAllReturnsAllExistingInstances() {
+        //arrange
+        final List<PersonGDB> persons = new ArrayList<>();
+        persons.add(new PersonGDB("Dominik", "Kouda", "koudadom"));
+        persons.add(new PersonGDB("Dominik2", "Kouda1", "koudadom1"));
+        persons.add(new PersonGDB("Dominik1", "Kouda2", "koudadom2"));
+        //act
+        personDao.persist(persons);
+        final List<PersonGDB> result = personDao.findAll();
+        //assert
+        assertEquals(persons.size(), result.size());
+        boolean found = false;
+        for (PersonGDB person : persons) {
+            for (PersonGDB person2 : result) {
+                if (person.equals(person2)) {
+                    found = true;
+                    break;
+                }
+            }
+            assertTrue(found);
+        }
+    }
+\end{lstlisting}
+% [TODO: možná doplnit test metody getPeopleByKnowledge]
+\subsection{Testování logiky}
+Logikou je v modulu \ctulst(none)!gdb_solution! myšlena hlavně třída \ctulst(none)!KnowledgeDTOList!. Tato třída reprezentuje množinu znalostí. Množina má navíc tu vlastnost, že v případě vložení duplicitního záznamu, zůstane v množině vždy prvek s větší sílou znalosti. Tato třída se využívá při vyhledávání osob dle znalosti ke kompletaci výsledku SPARQL dotazu.\par
+V testu níže lze vidět obdobný postup jako tomu bylo výše. V tomto konkrétním příkladu kontrolujeme, že při přidání jedné osoby vícekrát se aktualizuje její síla znalosti, byla-li přidávána vyšší.
+\begin{lstlisting}[language=JAVA, caption= Jednotkový test aplikační logiky modulu gdb\_solution, captionpos=b]
+    @Test
+    public void addsOnlyHighest() {
+        //arrange
+        KnowledgeDTOList list = new KnowledgeDTOList();
+        PersonGDB p1 = new PersonGDB("Dominik", "Kouda", "koudadom");
+        PersonGDB p2 = new PersonGDB("Dominik2", "Kouda1", "koudadom1");
+        PersonGDB p3 = new PersonGDB("Dominik1", "Kouda2", "koudadom2");
+        //act
+        list.add(new KnowledgeDTO(p1, 0.5, new HashSet<>()));
+        list.add(new KnowledgeDTO(p2, 0.5, new HashSet<>()));
+        list.add(new KnowledgeDTO(p3, 0.6, new HashSet<>()));
+        list.add(new KnowledgeDTO(p1, 0.7, new HashSet<>()));
+        //assert
+        assertEquals(3, list.size());
+        boolean success = false;
+        for(KnowledgeDTO dto: list.getKnowledgeDTOs()){
+            if(dto.getOwner().equals(p1) && 
+                    dto.getWeightOfKnowledge() == 0.7){
+                success = true;
+            }
+        }
+        assertTrue(success);
+    }
+}
+\end{lstlisting}
+Tímto druhem testů je otestována správná funkce této třídy. Konkrétně je to kontrola duplicit v množině a maximalizace síly znalosti každé osoby v množině, při postupném přidávání.
+\subsection{Testování REST API}
+API má dva základní případy použití - vrácení seznamu všech konceptů a vyhledání osob dle zvoleného konceptu. Vzhledem k tomu, že tato část aplikace není příliš složitá, rozhodli jsme se pro ruční otestování.\par
+\subsubsection{Scénáře}
+\begin{table}[h!]
+\begin{ctucolortab}
+% \begin{tabular}{|l|l|m{3cm}|l|m{2,75cm}|}
+\begin{tabularx}{0.95\linewidth}{X|X|X}
+\bfseries Testovaný případ  & \bfseries Očekávaný výsledek & \bfseries Výsledek testu\\\hline 
+    % \hline
+    %  & Forma dat & Dostupnost dat & Aktualizováno & Správce \\ \hline
+    Dotaz na všechny koncepty & Seznam všech konceptů ve formátu JSON & OK \\\hline
+    Vyhledání dle konceptu (existujícího) & Seznam osob ve formátu JSON & OK \\\hline
+    Vyhledání dle konceptu (neexistujícího) & Status 404 & Nalezena chyba \\
+\end{tabularx}
+\end{ctucolortab}
+	\caption{Tabulka testovacích případů pro REST API}
+	\label{tab:rest-testing}
+\end{table}
+Testování proběhlo bez větších problémů, byla nalezena chyba při dotazu na neexistující koncept. Chyba byla opravena.
+\section{Shrnutí}
+V této kapitole jsme shrnuli testování naší aplikace. V úvodu jsme popsali výhody testování hexagonální architektury a používané principy. V druhé části kapitoly jsme popsali testování serverové části našeho prototypu. Vzhledem k rozsahu prototypu jsme nepoužili všechny druhy testů, které je možné pro hexagonální architekturu implementovat.\par
+Implementace testů proběhla bez problémů, nalezené chyby jsme opravili. Ruční testování proběhlo též bez komplikací, nalezené chyby jsme opravili.
+
+
+
+
+
+% \subsection{Další výhody testování}
+% Může být například testovací profil jen pro účely UI testování, který nezdržuje žádná databáze apod. zkrátka \cite{cockburn}
+
+% \begin{itemize}
+%     \item SPI - infrastrukturu lze nahradit různými způsoby - dummy, mock (viz fowler), jiný zdroj (jiný typ databáze...), skutečná databáze s testovacími daty
+%     \item API - Lze nahradit testovací frameworkem (testování domény, je v podstatě na stejné úrovni jako je samotné API, je v podstatě API adaptérem)
+% \end{itemize}
+
+
+
+
+
+% Jak jsme již napsali v předchozí kapitole \ref{chap:implementation}: Účelem implementační části této práce je dokázat, že navržené řešení je možno použít a že skutečně může po dalších rozšířeních fungovat v praxi. K testování toho není mnoho, proto jsme zvolili pouze testovací úrovně, které dle nás mají pro náš rozsah smysl.\par
+% Důležité je zmínit, že zvolená hexagonální architektura patří mezi nejlépe testovatelné, obzvlášť díky své modularitě a zapouzdření.
+% % testování hexagonální architektury teoreticky (jeden zdroj tam byl)
+
+
+

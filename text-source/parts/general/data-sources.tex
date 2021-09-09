@@ -1,0 +1,83 @@
+\chapter{Zdroj dat} \label{chap:sources}
+V této kapitole rozebereme další dílčí problematiku, která je součástí našeho komplexního problému - zdroje dat.\par
+Nejdříve se zaměříme na zdroje dat o pracovištích a osobách. Poté rozebereme zdroje znalostí s důrazem na strojovou zpracovatelnost.\par
+
+\section{Forma dat a přístup k nim}
+Přístup k datům je obvykle realizován pomocí webových rozhraní (tzv. API). Pro komunikaci s tímto API se obvykle využívá protokol HTTP. Velmi často používaným konceptem pro návrh rozhraní je REST \cite{REST}. Rozvíjejícím se dotazovacím jazykem se díky své modularitě stává GraphQL \cite{GRAPHQL}, který operuje také nad zmíněným HTTP protokolem. \par
+Přístup k datům je typicky zabezpečen a není možné, aby jej získal kdokoliv. Často je nutné zažádat o přístup a poskytnout přesný účel, pro který data chceme získat. Každý datový zdroj má obvykle svou autentizační proceduru, tu je třeba vyjednat s poskytovatelem dat.\par
+Po překonání autentizační procedury jsou data přístupná, obvykle v serializovaném formátu. Nejčastější serializované formáty jsou JSON \cite{JSON} a XML \cite{XML}. V těchto formátech lze serializovat libovolná strukturovaná data například i RDF (viz kapitola č. \ref{sec:knowledge_representation}).\par
+Získaná data jsou samozřejmě strukturována dle datového schématu poskytovatele. Pokud se naše schéma liší od schématu poskytovatele, musíme data příslušným způsobem transformovat, tento problém vyřešíme v pozdějších kapitolách. Možností, jak data získat, je nespočet, zmínili jsme jen neobvyklejší metody.
+
+\section{Osoby a pracoviště}
+Data o těchto entitách jsou typicky dostupná v databázi/evidenci pracovníků resp. členů daného seskupení (firma, škola aj.). \par
+\noindent S daty o osobách je nutno pracovat dle směrnice GDPR \cite{GDPR}.
+% Pro účely databáze kompetencí bude nutné o osobách získat následující informace - jméno, příjmení, id v rámci organizace, pracoviště. Tyto informace jsou zmíněnou směrnicí považovány za osobní údaje.
+
+
+
+
+\section{Znalosti} %[TODO: pohovořit o strojovém zpracování dat]
+Znalosti mají v databázi kompetencí velmi důležitou roli. Komplexita této entity ve své podstatě určuje i práci s ostatními entitami a fungování celého systému.\par
+\noindent V kontextu znalostí musíme vyřešit následující problémy:
+\begin{itemize}
+    \item Znalosti osob
+    \item Znalostní báze
+\end{itemize}
+% [TODO: rozmyslet, jestli toto nedat ještě do nějaké sekce zvláštní ohledně obecného procesu vyhledávání dle kompetencí a způsobů (viz níže), možná by se to dalo demonstrovat na obrázku]
+Při vyhledávání osob dle znalostí můžeme zvolit různé přístupy v závislosti na získávaných znalostech. Identifikovali jsme dvě kategorie řešení:
+\begin{itemize}
+    \item Se sémantikou - pracuje s významem vyhledávaných konceptů
+    \item Bez sémantiky - pracuje na jiném principu, nebere v úvahu sémantiku
+\end{itemize}
+Na základě tohoto rozdělení můžeme konstatovat, že pokud se jedná o řešení bez sémantiky, z pravidla toto řešení nebude potřebovat znalostní bázi. Jedná se například o fulltextový vyhledávač přes danou sadu dokumentů a jednoduchá interpretace výsledku.\par
+V případě řešení se sémantikou je třeba znalostní bázi vytvořit a udržovat. Příkladem takového řešení může být znalostní báze uložená pomocí ontologií a následné vyhledávání konceptů v tomto ontologickém slovníku.\par
+\section{Znalosti osob}
+Pro vyhledávání osob dle jejich znalostí je třeba tyto znalosti získat. Datový zdroj takových znalostí musí poskytovat minimálně následující atributy:
+\begin{itemize}
+    \item Osobu
+    \item Znalost %(koncept)
+    \item Sílu znalosti
+\end{itemize}
+Znalosti osob je možné získat například z podpůrných systémů dané organizace (systémy pro organizaci znalostí, osobní profily zaměstnanců a jiné). Další možné zdroje jsou: knihovní systémy, vědecké registry, databáze vědeckých článků a výstupů vědecké činnosti (v organizaci, popřípadě světové).\par
+Co se týká formy dat, tak jsou to například: vědecké publikace, výsledky experimentů, patenty, vyučované předměty, vedené práce, zaměření studia, pracovní zkušenosti, specifikace výzkumné činnosti, osobní stránky (sekce dovedností a znalostí) a životopisy.\par
+Důležitá je vždy informace, o jakou množinu osob se jedná. U akademických organizací (vysoké školy apod.) budou nejspíš lépe dostupná data vědeckého a vzdělávacího charakteru (články, studované předměty). V neakademických organizacích s vyhovující infrastrukturou lze předpokládat existenci systému pro organizaci znalostí.\par
+\section{Znalostní báze} 
+% [TODO: možná nějaké lehké shrnutí, jak předpokládáme, že může vyhledávání probíhat]
+Znalostní bází myslíme množinu znalostí, kterou bude systém disponovat. V minulých kapitolách jsme shledali jako nejlepší jazyk pro reprezentaci znalostí ontologie. V kontextu ontologií je znalostní báze v podstatě množina konceptů, individualit a vazeb mezi nimi. Jedná se zkrátka o slovník, se kterým při vyhledávání znalostí pracujeme. \par
+\noindent Datový zdroj znalostní báze musí poskytovat minimálně následující:
+\begin{itemize}
+    \item Koncept s jeho atributy (název, id...)
+    \item Vazby na jiné koncepty (potažmo význam těchto vazeb)
+\end{itemize}
+Konceptem je v tomto kontextu myšleno ve své podstatě cokoliv, co lze pojmenovat a definovat.\par
+\noindent Zdrojem znalostí pro účely robustní znalostní báze by se mohla stát jakákoliv volně přístupná data ve vyhovujícím formátu (nejlépe RDF).\par
+\paragraph{Příklady takových zdrojů:}
+\begin{itemize}
+\item CoceptNet - http://conceptnet.io/
+\item DBpedia - https://wiki.dbpedia.org/
+\item Yago - https://datahub.io/collections/yago
+\item WordNet - https://wordnet.princeton.edu/
+\item Popř. Systémy pro organizaci znalostí přímo v organizaci
+\end{itemize}
+Je důležité si uvědomit, že jeden fyzický datový zdroj může sloužit jako zdroj znalostí osob a zároveň znalostní báze.\par
+\section{Shrnutí}
+V této kapitole jsme rozepsali datové zdroje, které je možné použít při řešení problému vyhledávání osob dle kompetencí. Klíčovými jsou datové zdroje znalostí, které jsme rozdělili do dvou základních kategorií - znalosti osob a znalostní báze.\par
+Četnost datových zdrojů může být v jednotlivých případech různá (různé organizace, různé infrastruktury). Kvalita zdrojů a jejich četnost rozhoduje o tom, v jaké míře bude třeba získaná data dále zpracovat. Problematiku zpracování dat rozebereme v následující kapitole.
+
+
+% Dnes populárním pojmem v oblasti webových zdrojů dat výše zmíněné povahy jsou tzv. Linked data \cite{LINKED_DATA}. \par
+
+% Je důležité brát v úvahu, že každý zdroj má svůj stupeň důvěryhodnosti, tím se ale budeme zabývat v dalších kapitolách podrobněji.
+
+
+
+
+% Znalostní báze tvořená otevřenými zdroji X KB tvořená zdroji navázanými na organizaci
+% Pokud bude znalostní báze tvořena pouze osobními, bude přesně uzpůsobená dané organizaci, pro kterou databázi znalostní tvoříme. Bude tedy přesně mapovat znalosti a jejich provázanost, která může v organizaci být velmi originální. Např. na FEL ČVUT mají spojitost koncepty jako je \textit{Poker} a \textit{Umělá inteligence}, nicméně na jiných univerzitách toto platit nemusí. Nevýhodou takového řešení může být robustnost znalostní báze. Již z definice znalosti v podstatě vyplývá, že konceptů, kterých se znalost může týkat, je obrovské množství. To znamená, že znalostní báze musí obsahovat dostatek konceptů, aby bylo možné zakládat mezi nimi vazby, a tak čerpat ze sémantiky jejich vztahu potřebné informace - pro účely databáze. Osobní znalosti je náročné získávat, je jich k dispozici tedy typicky méně. Malé množství konceptů ve znalostní bázi, může způsobit nedostatečnou provázanost báze. To by znamenalo, že by se v databázi nedalo využívat sémantiky konceptů, což by bylo velmi omezující v kontextu vyhledávaní lidí dle znalostí (v podstatě dle konceptů). Na druhou stranu můžeme říct, že jedna organizace resp. firma aj. se typicky orientuje omezeným počtem znalostních směrů. To by znamenalo, že získané koncepty budou často souviset mezi sebou.\par
+% Teoreticky je možné aby znalostní báze byla tvořena pouze obecnými znalostmi. V takovém případě bychom museli získávat znalosti osob jiným způsobem a znalostní bázi používat jako "slovník" konceptů. Získané koncepty\par
+% Jako optimální se jeví vhodná kombinace obou druhů znalostí.
+
+
+
+% Znalosti se v našem systému vážou na osoby. Hlavním úkolem pro efektivní práci se znalostmi tedy je, zajistit maximální množství znalostí všech osob, které jsou součástí dané organizace, pro kterou tvoříme databázi kompetencí.\par
+% Druhý dílčí úkol je znalostní báze, kterou musí systém disponovat. Tato báze může být přímo vázána na osoby v organizaci, tzn. že bude vznikat pouze ze znalostí členů dané organizace. Výhodou tohoto řešení je, že dodržuje specificitu znalostní báze v dané organizaci, tzn. že znalosti budou strukturovány specificky pro každou organizaci a udrží se tak originalita modelu. Nevýhodné může být, že znalostní báze musí být dostatečně robustní pro efektivní práci s ní. To se nám nemusí podařit, pokud budeme brát v úvahu pouze velmi omezenou množinu znalostí osob v dané organizaci. Tento problém se dá vyřešit tak, že budeme čerpat znalosti ještě z dalšího zdroje. Tento zdroj by poskytoval znalosti bez vlastníků. Sloužil by primárně pro tvorbu robustní znalostní báze.\par

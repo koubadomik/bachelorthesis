@@ -1,0 +1,59 @@
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX con: <http://onto.fel.cvut.cz/koubadom/individuals/concepts#>
+PREFIX per: <http://onto.fel.cvut.cz/koubadom/individuals/persons#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX props: <http://onto.fel.cvut.cz/koubadom/properties#>
+PREFIX kn: <http://onto.fel.cvut.cz/koubadom/individuals/knowledge#>
+PREFIX class: <http://onto.fel.cvut.cz/koubadom/classes#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX : <http://www.semanticweb.org/domia/ontologies/2019/2/untitled-ontology-20#>
+
+
+select * {
+    BIND (con:concept3053 AS ?concept)
+ 	{
+        ?person props:knows ?k .
+        ?k props:weight ?w;
+           props:has_concept ?c .
+        ?c skos:semanticRelation ?concept .
+    }
+    UNION
+    {
+        ?person props:knows ?k .
+    	?k props:weight ?w;
+      	 	props:has_concept ?c .
+    	?c skos:semanticRelation ?d .
+		?d skos:semanticRelation ?concept .
+    }
+	UNION
+    {
+        ?person props:knows ?k .
+        ?k props:weight ?w;
+           props:has_concept ?c .
+        ?c skos:semanticRelation ?d .
+        ?d skos:semanticRelation ?e .
+        ?e skos:semanticRelation ?concept .
+	}
+    UNION
+    {
+        ?person props:knows ?k .
+        ?k props:weight ?w;
+           props:has_concept ?c .
+        ?c skos:semanticRelation ?d .
+        ?d skos:semanticRelation ?e .
+        ?e skos:semanticRelation ?f .
+        ?f skos:semanticRelation ?concept .
+	}
+        UNION
+    {
+        ?person props:knows ?k .
+        ?k props:weight ?w;
+           props:has_concept ?c .
+        ?c skos:semanticRelation ?d .
+        ?d skos:semanticRelation ?e .
+        ?e skos:semanticRelation ?f .
+        ?f skos:semanticRelation ?g .
+        ?g skos:semanticRelation ?concept .
+	}
+}
